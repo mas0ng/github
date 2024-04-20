@@ -1,1 +1,36 @@
-hi
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="0;url=https://default-url.com">
+    <title>Redirect Page</title>
+    <script>
+        window.onload = function() {
+            // Get the query string from the URL
+            var queryString = window.location.search;
+            var urlParams = new URLSearchParams(queryString);
+
+            // Check the value of the 'redirect' parameter
+            var redirect = urlParams.get('redirect');
+
+            // Redirect based on the value of the 'redirect' parameter
+            switch (redirect) {
+                case 'github':
+                    window.location.href = 'https://github.com';
+                    break;
+                case 'main':
+                    window.location.href = 'https://main-website.com';
+                    break;
+                case 'fullscreen':
+                    window.location.href = 'https://fullscreen-mode.com';
+                    break;
+                default:
+                    window.location.href = 'https://other-default-url.com';
+            }
+        }
+    </script>
+</head>
+<body>
+    <p>If you are not redirected, please check if JavaScript is enabled.</p>
+</body>
+</html>
