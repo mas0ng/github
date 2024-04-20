@@ -16,16 +16,19 @@
             // Redirect based on the value of the 'redirect' parameter
             switch (redirect) {
                 case 'github':
-                    window.location.href = 'https://github.com';
+                    window.location.href = 'https://github.com/mas0ng?tab=repositories';
                     break;
                 case 'main':
-                    window.location.href = 'https://main-website.com';
+                    window.location.href = 'https://github.com/mas0ng/mas0ng.com';
                     break;
                 case 'fullscreen':
-                    window.location.href = 'https://fullscreen-mode.com';
+                    window.location.href = 'https://github.com/mas0ng/mas0ng-fullscreen';
+                    break;
+                case 'mobile':
+                    window.location.href = 'https://github.com/mas0ng/mobile-mas0ng.com';
                     break;
                 default:
-                    window.location.href = 'https://other-default-url.com';
+                    window.location.href = '404.html';
             }
         }
     </script>
