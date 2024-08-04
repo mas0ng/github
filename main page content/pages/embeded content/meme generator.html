@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Meme Generator</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Random Meme Generator</h1>
+    <img id="memeImage" src="" alt="Random Meme" />
+    <button onclick="getRandomMeme()">Get Another Meme</button>
+
+    <script>
+        function getRandomMeme() {
+            fetch('https://api.imgflip.com/get_memes')
+                .then(response => response.json())
+                .then(data => {
+                    const memes = data.data.memes;
+                    const randomMeme = memes[Math.floor(Math.random() * memes.length)];
+                    document.getElementById('memeImage').src = randomMeme.url;
+                })
+                .catch(error => {
+                    console.error('Error fetching meme:', error);
+                });
+        }
+
+        // Load a meme when the page loads
+        window.onload = getRandomMeme;
+    </script>
+
+</body>
+</html>
